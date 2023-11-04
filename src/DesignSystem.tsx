@@ -1,12 +1,12 @@
+import NumberedTitle from "./components/NumberedTitle"
+
 export default function DesignSystem() {
   return (
     <div className="container">
       <h1 className="uppercase">Design system</h1>
 
       <section id="colors" style={{ margin: "4rem 0" }}>
-        <h2 className="uppercase">
-          <span>01</span> colors
-        </h2>
+        <NumberedTitle number="01" title="colors" />
         <div className="flex">
           <div style={{ flexGrow: 1 }}>
             <div
@@ -54,9 +54,7 @@ export default function DesignSystem() {
       </section>
 
       <section id="typography" style={{ margin: "4rem 0" }}>
-        <h2>
-          <span>02 </span>Typography
-        </h2>
+        <NumberedTitle number="02" title="typography" />
         <div className="flex">
           <div style={{ flexBasis: "100%" }}>
             <div>
