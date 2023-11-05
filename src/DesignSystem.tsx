@@ -185,7 +185,12 @@ export default function DesignSystem() {
             <Button>Explore</Button>
           </div>
 
-          <div style={{ marginBottom: "50vh" }}>
+          <div
+            className="flow"
+            style={
+              { marginBottom: "50vh", "--flow-space": "4rem" } as CSSProperties
+            }
+          >
             {/* Tabs  */}
             <div className="tab-list underline-indicators flex">
               <button
@@ -207,8 +212,19 @@ export default function DesignSystem() {
                 Europe
               </button>
             </div>
-            {/* Dots */}
 
+            {/* Dots */}
+            <div className="dot-indicators flex">
+              <button aria-selected="true">
+                <span className="sr-only">Slide title</span>
+              </button>
+              <button aria-selected="false">
+                <span className="sr-only">Slide title</span>
+              </button>
+              <button aria-selected="false">
+                <span className="sr-only">Slide title</span>
+              </button>
+            </div>
             {/* Numbers */}
           </div>
         </div>
