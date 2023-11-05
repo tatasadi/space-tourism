@@ -1,9 +1,6 @@
 export default function Button({ children }) {
   return (
-    <a
-      href="#"
-      className="large-button uppercase ff-serif fs-600 text-dark bg-white"
-    >
+    <a href="#" className="large-button uppercase ff-serif text-dark bg-white">
       {children}
     </a>
   )

@@ -9,12 +9,12 @@
   --clr-white: 0 0% 100%;
 
   /* font-sizes */
-  --fs-900: 9.375rem;
-  --fs-800: 6.25rem;
-  --fs-700: 3.5rem;
-  --fs-600: 2rem;
+  --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
+  --fs-800: 3.5rem;
+  --fs-700: 1.5rem;
+  --fs-600: 1rem;
   --fs-500: 1.75rem;
-  --fs-400: 1.125rem;
+  --fs-400: 0.9375rem;
   --fs-300: 1rem;
   --fs-200: 0.875rem;
 
@@ -24,11 +24,30 @@
   --ff-sans-normal: "Barlow", sans-serif;
 }
 
-/* -------------- */
-/* Reset          */
-/* -------------- */
+@media (min-width: 35em) {
+  :root {
+    --fs-800: 5rem;
+    --fs-700: 2.5rem;
+    --fs-600: 1.5rem;
+    --fs-400: 1rem;
+  }
+}
 
-/* https://andy-bell.co.uk/a-more-modern-css-reset/ */
+@media (min-width: 45em) {
+  :root {
+    /* font-sizes */
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-400: 1.125rem;
+  }
+}
+
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
 
 /* Box sizing */
 *,
@@ -67,17 +86,22 @@ body {
   color: hsl(var(--clr-white));
   background-color: hsl(var(--clr-dark));
   line-height: 1.5;
+}
+
+#root {
   min-height: 100vh;
+  display: grid;
+  grid-template-rows: min-content 1fr;
 }
 
 /* make images easier to work with */
 img,
-picture {
+picutre {
   max-width: 100%;
   display: block;
 }
 
-/* make forms elements easier to work with */
+/* make form elements easier to work with */
 input,
 button,
 textarea,
@@ -86,7 +110,6 @@ select {
 }
 
 /* remove animations for people who've turned them off */
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -98,9 +121,9 @@ select {
   }
 }
 
-/* --------------- */
-/* Utility classes */
-/* --------------- */
+/* ------------------- */
+/* Utility classes     */
+/* ------------------- */
 
 /* general */
 
@@ -114,6 +137,10 @@ select {
   gap: var(--gap, 1rem);
 }
 
+.d-block {
+  display: block;
+}
+
 .flow > *:where(:not(:first-child)) {
   margin-top: var(--flow-space, 1rem);
 }
@@ -122,6 +149,41 @@ select {
   padding-inline: 2em;
   margin-inline: auto;
   max-width: 80rem;
+}
+
+.grid-container {
+  text-align: center;
+  display: grid;
+  place-items: center;
+  padding-inline: 1rem;
+}
+
+.grid-container * {
+  max-width: 50ch;
+}
+
+@media (min-width: 45em) {
+  .grid-container {
+    text-align: left;
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
+        1rem,
+        1fr
+      );
+  }
+
+  .grid-container > *:first-child {
+    grid-column: 2;
+  }
+
+  .grid-container > *:last-child {
+    grid-column: 3;
+  }
+
+  .grid-container--home {
+    padding-bottom: max(6rem, 20vh);
+    align-items: end;
+  }
 }
 
 .sr-only {
@@ -141,11 +203,9 @@ select {
 .bg-dark {
   background-color: hsl(var(--clr-dark));
 }
-
 .bg-accent {
   background-color: hsl(var(--clr-light));
 }
-
 .bg-white {
   background-color: hsl(var(--clr-white));
 }
@@ -153,17 +213,11 @@ select {
 .text-dark {
   color: hsl(var(--clr-dark));
 }
-
 .text-accent {
   color: hsl(var(--clr-light));
 }
-
 .text-white {
   color: hsl(var(--clr-white));
-}
-
-.bg-accent-20 {
-  background-color: hsl(var(--clr-light) / 0.2);
 }
 
 /* typography */
@@ -238,27 +292,28 @@ select {
 }
 
 /* ------------------- */
-/* Components          */
+/* Compontents         */
 /* ------------------- */
 
 .large-button {
+  font-size: 2rem;
   position: relative;
-  display: grid;
+  z-index: 1;
+  display: inline-grid;
   place-items: center;
   padding: 0 2em;
   border-radius: 50%;
   aspect-ratio: 1;
   text-decoration: none;
-  z-index: 1;
 }
 
-.large-button:after {
+.large-button::after {
   content: "";
   position: absolute;
   z-index: -1;
   width: 100%;
   height: 100%;
-  background-color: hsl(var(--clr-white) / 0.15);
+  background: hsl(var(--clr-white) / 0.1);
   border-radius: 50%;
   opacity: 0;
   transition: opacity 500ms linear, transform 750ms ease-in-out;
@@ -266,8 +321,8 @@ select {
 
 .large-button:hover::after,
 .large-button:focus::after {
-  transform: scale(1.5);
   opacity: 1;
+  transform: scale(1.5);
 }
 
 .primary-navigation {
@@ -291,7 +346,7 @@ select {
   cursor: pointer;
   padding: var(--underline-gap, 1rem) 0;
   border: 0;
-  border-bottom: 0.187rem solid hsl(var(--clr-white) / 0);
+  border-bottom: 0.2rem solid hsl(var(--clr-white) / 0);
 }
 
 .underline-indicators > *:hover,
@@ -301,8 +356,8 @@ select {
 
 .underline-indicators > .active,
 .underline-indicators > [aria-selected="true"] {
-  color: hsl(var(--clr-white));
-  border-color: hsl(var(--clr-white));
+  color: hsl(var(--clr-white) / 1);
+  border-color: hsl(var(--clr-white) / 1);
 }
 
 .tab-list {
@@ -313,8 +368,7 @@ select {
   cursor: pointer;
   border: 0;
   border-radius: 50%;
-  aspect-ratio: 1;
-  padding: 0.5rem;
+  padding: 0.5em;
   background-color: hsl(var(--clr-white) / 0.25);
 }
 
@@ -324,29 +378,35 @@ select {
 }
 
 .dot-indicators > [aria-selected="true"] {
-  background-color: hsl(var(--clr-white));
+  background-color: hsl(var(--clr-white) / 1);
 }
 
-.number-indicators > * {
-  cursor: pointer;
-  color: hsl(var(--clr-white));
-  background-color: hsl(var(--clr-dark));
-  border: 1px solid hsl(var(--clr-white) / 0.25);
-  border-radius: 50%;
-  padding: 1em;
-  aspect-ratio: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* ------------------------- */
+/* Page specific background  */
+/* ------------------------- */
+
+/* home */
+.page-content {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr;
+  background-position: bottom center;
+  background-size: cover;
 }
 
-.number-indicators > *:hover,
-.number-indicators > *:focus {
-  border-color: hsl(var(--clr-white));
+.home {
+  background-image: url(/images/home/background-home-mobile.jpg);
 }
 
-.number-indicators > [aria-selected="true"] {
-  color: hsl(var(--clr-dark));
-  border-color: hsl(var(--clr-white));
-  background-color: hsl(var(--clr-white));
+@media (min-width: 35em) {
+  .home {
+    background-position: center center;
+    background-image: url(/images/home/background-home-tablet.jpg);
+  }
+}
+
+@media (min-width: 45em) {
+  .home {
+    background-image: url(/images/home/background-home-desktop.jpg);
+  }
 }
