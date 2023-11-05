@@ -326,3 +326,27 @@ select {
 .dot-indicators > [aria-selected="true"] {
   background-color: hsl(var(--clr-white));
 }
+
+.number-indicators > * {
+  cursor: pointer;
+  color: hsl(var(--clr-white));
+  background-color: hsl(var(--clr-dark));
+  border: 1px solid hsl(var(--clr-white) / 0.25);
+  border-radius: 50%;
+  padding: 1em;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.number-indicators > *:hover,
+.number-indicators > *:focus {
+  border-color: hsl(var(--clr-white));
+}
+
+.number-indicators > [aria-selected="true"] {
+  color: hsl(var(--clr-dark));
+  border-color: hsl(var(--clr-white));
+  background-color: hsl(var(--clr-white));
+}

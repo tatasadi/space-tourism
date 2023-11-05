@@ -226,6 +226,11 @@ export default function DesignSystem() {
               </button>
             </div>
             {/* Numbers */}
+            <div className="number-indicators flex">
+              <button aria-selected="true">1</button>
+              <button aria-selected="false">2</button>
+              <button aria-selected="false">3</button>
+            </div>
           </div>
         </div>
       </section>
