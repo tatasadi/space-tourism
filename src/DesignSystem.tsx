@@ -1,3 +1,4 @@
+import { CSSProperties } from "react"
 import NumberedTitle from "./components/NumberedTitle"
 
 export default function DesignSystem() {
@@ -56,7 +57,12 @@ export default function DesignSystem() {
       <section id="typography" style={{ margin: "4rem 0" }}>
         <NumberedTitle number="02" title="typography" />
         <div className="flex">
-          <div style={{ flexBasis: "100%" }}>
+          <div
+            className="flow"
+            style={
+              { flexBasis: "100%", "--flow-space": "3rem" } as CSSProperties
+            }
+          >
             <div>
               <p className="text-accent">
                 Heading 1 - Bellefair Regular - 150px
@@ -94,7 +100,12 @@ export default function DesignSystem() {
             </div>
           </div>
 
-          <div style={{ flexBasis: "100%" }}>
+          <div
+            className="flow"
+            style={
+              { flexBasis: "100%", "--flow-space": "3rem" } as CSSProperties
+            }
+          >
             <div>
               <p>Subheading 1 - Bellefair Regular - 28px</p>
               <p className="fs-500 ff-sarif uppercase">384,400 km</p>
