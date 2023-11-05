@@ -1,5 +1,6 @@
 import { CSSProperties } from "react"
 import NumberedTitle from "./components/NumberedTitle"
+import Button from "./components/Button"
 
 export default function DesignSystem() {
   return (
@@ -146,6 +147,30 @@ export default function DesignSystem() {
                 dapibus id, mattis vel, nisi.{" "}
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="flow" id="interactive-elements">
+        <h2 className="numbered-title">
+          <span>03</span> Interactive elements
+        </h2>
+
+        {/* navigation  */}
+        <div></div>
+
+        <div className="flex">
+          <div style={{ marginTop: "5rem" }}>
+            {/* explore button  */}
+            <Button>Explore</Button>
+          </div>
+
+          <div style={{ marginBottom: "50vh" }}>
+            {/* Tabs  */}
+
+            {/* Dots */}
+
+            {/* Numbers */}
           </div>
         </div>
       </section>
