@@ -1,6 +1,6 @@
 import { CSSProperties } from "react"
-import NumberedTitle from "./components/NumberedTitle"
-import Button from "./components/Button"
+import NumberedTitle from "../components/NumberedTitle"
+import Button from "../components/Button"
 
 export default function DesignSystem() {
   return (
