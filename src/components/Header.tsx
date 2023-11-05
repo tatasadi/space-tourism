@@ -2,7 +2,6 @@ import { Link, useLocation } from "react-router-dom"
 
 export default function Header() {
   const { pathname } = useLocation()
-  console.log(location)
   return (
     <header className="primary-header flex">
       <div>
@@ -12,7 +11,7 @@ export default function Header() {
           alt="space tourism logo"
         />
       </div>
-      {/* <nav>
+      <nav>
         <ul className="primary-navigation underline-indicators flex">
           <li className={pathname === "/" ? "active" : ""}>
             <Link
@@ -22,7 +21,7 @@ export default function Header() {
               <span>00</span> Home
             </Link>
           </li>
-          <li className={pathname === "/destination" ? "active" : ""}>
+          {/* <li className={pathname === "/destination" ? "active" : ""}>
             <Link
               className="ff-sans-cond uppercase text-white letter-spacing-2"
               to="/destination"
@@ -45,9 +44,9 @@ export default function Header() {
             >
               <span>03</span> Technology
             </Link>
-          </li>
+          </li> */}
         </ul>
-      </nav> */}
+      </nav>
     </header>
   )
 }

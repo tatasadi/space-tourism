@@ -91,7 +91,7 @@ body {
 #root {
   min-height: 100vh;
   display: grid;
-  grid-template-rows: min-content 1fr;
+  grid-template-rows: 1fr;
 }
 
 /* make images easier to work with */
@@ -389,7 +389,7 @@ select {
 .page-content {
   min-height: 100%;
   display: grid;
-  grid-template-rows: 1fr;
+  grid-template-rows: min-content 1fr;
   background-position: bottom center;
   background-size: cover;
 }
