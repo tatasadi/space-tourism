@@ -1,7 +1,11 @@
+import { useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 
 export default function Header() {
   const { pathname } = useLocation()
+  const [mobileNavOpen, setMobileNavOpen] = useState(false)
+  console.log(mobileNavOpen)
+
   return (
     <header className="primary-header flex">
       <div>
@@ -11,8 +15,23 @@ export default function Header() {
           alt="space tourism logo"
         />
       </div>
+      <button
+        className={`mobile-nav-toggle ${mobileNavOpen ? "open" : ""}`}
+        aria-controls="primary-navigation"
+        onClick={() =>
+          setMobileNavOpen((prevMobielNavOpen) => !prevMobielNavOpen)
+        }
+      >
+        <span className="sr-only">Menu</span>
+      </button>
       <nav>
-        <ul className="primary-navigation underline-indicators flex">
+        <ul
+          id="primary-navigation"
+          data-visible="false"
+          className={`primary-navigation underline-indicators flex ${
+            mobileNavOpen ? "open" : ""
+          }`}
+        >
           <li className={pathname === "/" ? "active" : ""}>
             <Link
               className="ff-sans-cond uppercase text-white letter-spacing-2"
@@ -21,7 +40,7 @@ export default function Header() {
               <span>00</span> Home
             </Link>
           </li>
-          {/* <li className={pathname === "/destination" ? "active" : ""}>
+          <li className={pathname === "/destination" ? "active" : ""}>
             <Link
               className="ff-sans-cond uppercase text-white letter-spacing-2"
               to="/destination"
@@ -44,7 +63,7 @@ export default function Header() {
             >
               <span>03</span> Technology
             </Link>
-          </li> */}
+          </li>
         </ul>
       </nav>
     </header>
