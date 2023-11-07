@@ -4,7 +4,6 @@ import { Link, useLocation } from "react-router-dom"
 export default function Header() {
   const { pathname } = useLocation()
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
-  console.log(mobileNavOpen)
 
   return (
     <header className="primary-header flex">
