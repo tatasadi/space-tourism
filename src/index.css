@@ -199,6 +199,21 @@ select {
   border: 0;
 }
 
+.skip-to-content {
+  position: absolute;
+  z-index: 9999;
+  background: hsl(var(--clr-white));
+  color: hsl(var(--clr-dark));
+  padding: 0.5em 1em;
+  margin-inline: auto;
+  transform: translateY(-100%);
+  transition: transform 250ms ease-in;
+}
+
+.skip-to-content:focus {
+  transform: translateY(0);
+}
+
 /* colors */
 
 .bg-dark {
@@ -348,6 +363,7 @@ select {
 
 .primary-navigation a {
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .primary-navigation a > span {
@@ -436,6 +452,7 @@ select {
     order: 1;
     margin-right: -2.5rem;
   }
+
   .primary-header nav {
     order: 2;
   }
