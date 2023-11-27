@@ -60,9 +60,11 @@ export default function Crew() {
             />
           ))}
         </div>
-        <article className="crew-details">
-          <h2 className="fs-600 ff-serif uppercase">{selectedCrew.role}</h2>
-          <p className="fs-700 uppercase ff-serif">{selectedCrew.name}</p>
+        <article className="crew-details flow">
+          <header className="flow flow--space-small">
+            <h2 className="fs-600 ff-serif uppercase">{selectedCrew.role}</h2>
+            <p className="fs-700 uppercase ff-serif">{selectedCrew.name}</p>
+          </header>
           <p>{selectedCrew.bio}</p>
         </article>
 

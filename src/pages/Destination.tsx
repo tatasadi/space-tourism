@@ -78,7 +78,7 @@ export default function Destination() {
             />
           ))}
         </div>
-        <article className="destination-info">
+        <article className="destination-info flow">
           <h2 className="fs-800 uppercase ff-serif">
             {selectedDestination.name}
           </h2>
