@@ -69,11 +69,12 @@ export default function Destination() {
           alt={`the ${selectedDestination.name}`}
         />
         <div className="tab-list underline-indicators flex">
-          {destinations.map((d) => (
+          {destinations.map((d, i) => (
             <TabItem
               key={d.name}
               isActive={selectedDestination.name === d.name}
               text={d.name}
+              handleClick={() => setSelectedDestination(destinations[i])}
             />
           ))}
         </div>
