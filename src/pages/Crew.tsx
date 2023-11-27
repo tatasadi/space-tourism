@@ -68,7 +68,13 @@ export default function Crew() {
           <p>{selectedCrew.bio}</p>
         </article>
 
-        <img src={selectedCrew.images.png} alt="Douglas Hurley" />
+        <picture>
+          <picture
+            srcset={selectedCrew.images.webp} 
+            type="image/webp"
+          />
+          <img src={selectedCrew.images.png} alt="Douglas Hurley" />
+        </picture>
       </main>
     </div>
   )

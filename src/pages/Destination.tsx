@@ -64,10 +64,13 @@ export default function Destination() {
         <h1 className="numbered-title">
           <span aria-hidden="true">01</span> pick your destination
         </h1>
-        <img
-          src={selectedDestination.images.png}
-          alt={`the ${selectedDestination.name}`}
-        />
+        <picture>
+          <source srcset={selectedDestination.images.webp} type="image/webp" />
+          <img
+            src={selectedDestination.images.png}
+            alt={`the ${selectedDestination.name}`}
+          />
+        </picture>
         <div className="tab-list underline-indicators flex">
           {destinations.map((d, i) => (
             <TabItem
