@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Link, useLocation } from "react-router-dom"
+import NavItem from "./NavItem"
 
 export default function Header() {
   const { pathname } = useLocation()
@@ -31,38 +32,18 @@ export default function Header() {
             mobileNavOpen ? "open" : ""
           }`}
         >
-          <li className={pathname === "/" ? "active" : ""}>
-            <Link
-              className="ff-sans-cond uppercase text-white letter-spacing-2"
-              to="/"
-            >
-              <span>00</span> Home
-            </Link>
-          </li>
-          <li className={pathname === "/destination" ? "active" : ""}>
-            <Link
-              className="ff-sans-cond uppercase text-white letter-spacing-2"
-              to="/destination"
-            >
-              <span>01</span> Destination
-            </Link>
-          </li>
-          <li className={pathname === "/crew" ? "active" : ""}>
-            <Link
-              className="ff-sans-cond uppercase text-white letter-spacing-2"
-              to="/crew"
-            >
-              <span>02</span> Crew
-            </Link>
-          </li>
-          <li className={pathname === "/technology" ? "active" : ""}>
-            <Link
-              className="ff-sans-cond uppercase text-white letter-spacing-2"
-              to="/technology"
-            >
-              <span>03</span> Technology
-            </Link>
-          </li>
+          <NavItem to="/" isActive={pathname === "/"}>
+            <span>00</span> Home
+          </NavItem>
+          <NavItem to="/destination" isActive={pathname === "/destination"}>
+            <span>02</span> Destination
+          </NavItem>
+          <NavItem to="/crew" isActive={pathname === "/crew"}>
+            <span>03</span> Crew
+          </NavItem>
+          <NavItem to="/technology" isActive={pathname === "/technology"}>
+            <span>04</span> Technology
+          </NavItem>
         </ul>
       </nav>
     </header>

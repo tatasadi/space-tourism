@@ -337,7 +337,7 @@ select {
   white-space: nowrap;
 }
 
-.primary-navigation a > span {
+.primary-navigation li > span {
   font-weight: 700;
   margin-right: 0.5em;
 }
@@ -407,7 +407,7 @@ select {
 }
 
 @media (min-width: 35em) and (max-width: 45.999em) {
-  .primary-navigation a > span {
+  .primary-navigation li > span {
     display: none;
   }
 }
