@@ -71,7 +71,7 @@ export default function Crew() {
 
         <picture>
           <source srcSet={selectedCrew.images.webp} type="image/webp" />
-          <img src={selectedCrew.images.png} alt="Douglas Hurley" />
+          <img src={selectedCrew.images.png} alt={selectedCrew.name} />
         </picture>
       </main>
     </div>
