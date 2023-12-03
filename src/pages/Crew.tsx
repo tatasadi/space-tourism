@@ -70,7 +70,7 @@ export default function Crew() {
         </article>
 
         <picture>
-          <picture srcset={selectedCrew.images.webp} type="image/webp" />
+          <source srcSet={selectedCrew.images.webp} type="image/webp" />
           <img src={selectedCrew.images.png} alt="Douglas Hurley" />
         </picture>
       </main>

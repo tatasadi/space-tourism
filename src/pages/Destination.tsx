@@ -65,7 +65,7 @@ export default function Destination() {
           <span aria-hidden="true">01</span> pick your destination
         </h1>
         <picture>
-          <source srcset={selectedDestination.images.webp} type="image/webp" />
+          <source srcSet={selectedDestination.images.webp} type="image/webp" />
           <img
             src={selectedDestination.images.png}
             alt={`the ${selectedDestination.name}`}
