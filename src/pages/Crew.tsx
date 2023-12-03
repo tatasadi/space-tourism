@@ -57,6 +57,7 @@ export default function Crew() {
               key={c.name}
               isSelected={c.name === selectedCrew.name}
               name={selectedCrew.name}
+              handleClick={() => setSelectedCrew(crew[i])}
             />
           ))}
         </div>
@@ -69,10 +70,7 @@ export default function Crew() {
         </article>
 
         <picture>
-          <picture
-            srcset={selectedCrew.images.webp} 
-            type="image/webp"
-          />
+          <picture srcset={selectedCrew.images.webp} type="image/webp" />
           <img src={selectedCrew.images.png} alt="Douglas Hurley" />
         </picture>
       </main>
